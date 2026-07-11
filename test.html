@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Typing Practice - Typing Test</title>
+<link rel="stylesheet" href="css/style.css?v=4" />
+</head>
+<body>
+<header class="navbar">
+  <a class="brand" href="index.html">⌨️ Typing Practice</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="test.html" class="active" aria-current="page">Typing Test</a>
+    <a href="history.html">History</a>
+  </nav>
+  <div class="nav-actions">
+    <button type="button" data-theme-toggle aria-pressed="false">🌙 Dark Mode</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="page-section">
+    <h1>Typing Test</h1>
+
+    <div class="setup-bar" id="setup-bar">
+      <label for="language-select">Language
+        <select id="language-select">
+          <option value="english">English</option>
+          <option value="hindi">Hindi</option>
+        </select>
+      </label>
+      <label for="duration-select">Duration
+        <select id="duration-select">
+          <option value="60">1 Minute</option>
+          <option value="120">2 Minutes</option>
+          <option value="180">3 Minutes</option>
+          <option value="300" selected>5 Minutes</option>
+          <option value="600">10 Minutes</option>
+          <option value="900">15 Minutes</option>
+        </select>
+      </label>
+      <button type="button" id="start-btn" class="primary">Start Test</button>
+      <span class="mode-readout" id="mode-readout" hidden></span>
+      <span class="timer-display" id="timer-display" aria-live="polite">00:00</span>
+    </div>
+
+    <h2 class="visually-hidden">Paragraph to type</h2>
+    <div id="paragraph-display" class="paragraph-display" aria-live="off"></div>
+
+    <label for="typing-area" class="visually-hidden">Typing area</label>
+    <textarea id="typing-area" class="typing-area" placeholder="Click Start Test, then type here..." disabled></textarea>
+
+    <div class="live-stats-bar" aria-live="polite">
+      <div class="card stat-card"><div class="stat-value" id="live-accuracy">0%</div><div class="stat-label">Current Accuracy</div></div>
+      <div class="card stat-card"><div class="stat-value" id="live-stroke-speed">0</div><div class="stat-label">Current Stroke Speed</div></div>
+      <div class="card stat-card"><div class="stat-value" id="live-words">0</div><div class="stat-label">Current Typed Words</div></div>
+      <div class="card stat-card"><div class="stat-value" id="live-keystrokes">0</div><div class="stat-label">Current Keystrokes</div></div>
+      <div class="card stat-card"><div class="stat-value" id="live-mistakes">0</div><div class="stat-label">Current Mistakes</div></div>
+    </div>
+
+    <div class="action-row">
+      <button type="button" id="submit-btn" class="primary" disabled>Submit Test (Ctrl+Enter)</button>
+      <button type="button" id="cancel-btn" disabled>Cancel Test (Esc)</button>
+      <button type="button" id="fullscreen-btn">Fullscreen (F11)</button>
+    </div>
+    <p class="hint-text" id="shortcut-hint">Shortcuts: Ctrl+Enter to submit, Escape to cancel, F11 to toggle fullscreen. The typing area is focused automatically when a test starts.</p>
+  </section>
+
+  <section class="page-section" id="results-section" hidden>
+    <h2>Results</h2>
+    <div id="results-grid" class="grid"></div>
+    <h2>Error Review</h2>
+    <div id="error-review"></div>
+    <div class="action-row">
+      <button type="button" id="new-test-btn" class="primary">Start Another Test</button>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">Typing Practice &mdash; for personal exam preparation only.</footer>
+
+<script type="module" src="js/testPage.js?v=3"></script>
+</body>
+</html>

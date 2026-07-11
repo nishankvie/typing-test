@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Typing Practice - History</title>
+<link rel="stylesheet" href="css/style.css?v=4" />
+</head>
+<body>
+<header class="navbar">
+  <a class="brand" href="index.html">⌨️ Typing Practice</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="test.html">Typing Test</a>
+    <a href="history.html" class="active" aria-current="page">History</a>
+  </nav>
+  <div class="nav-actions">
+    <button type="button" data-theme-toggle aria-pressed="false">🌙 Dark Mode</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="page-section">
+    <h1>Practice History</h1>
+
+    <div class="toolbar">
+      <label for="search-input">Search
+        <input type="search" id="search-input" placeholder="Search by date, page, duration..." />
+      </label>
+      <label for="sort-select">Sort by
+        <select id="sort-select">
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+          <option value="accuracy">Highest Accuracy</option>
+          <option value="dsssb">Highest DSSSB Speed</option>
+          <option value="delhiPolice">Highest Delhi Police Speed</option>
+          <option value="stroke">Highest Stroke Speed</option>
+        </select>
+      </label>
+      <button type="button" id="export-json-btn">Export JSON</button>
+      <button type="button" id="export-csv-btn">Export CSV</button>
+      <label class="btn" for="import-file" style="cursor:pointer;">Import JSON</label>
+      <input type="file" id="import-file" accept="application/json" class="visually-hidden" />
+      <button type="button" id="clear-all-btn" class="danger">Clear All History</button>
+    </div>
+
+    <p class="hint-text" id="result-count"></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th><th>Time</th><th>Page</th><th>Duration</th><th>Mode</th>
+            <th>Correct</th><th>Missing</th><th>Mistakes</th><th>Accuracy</th>
+            <th>Stroke Spd</th><th>Space Spd</th><th>DSSSB Spd</th><th>Delhi Police Spd</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="history-tbody"></tbody>
+      </table>
+    </div>
+
+    <div id="empty-state" class="empty-state" hidden>No history yet. Complete a typing test to see it here.</div>
+
+    <div class="pagination" id="pagination"></div>
+  </section>
+</main>
+
+<footer class="site-footer">Typing Practice &mdash; for personal exam preparation only.</footer>
+
+<script type="module" src="js/historyPage.js"></script>
+</body>
+</html>

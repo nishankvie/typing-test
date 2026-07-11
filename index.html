@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Typing Practice - Home</title>
+<link rel="stylesheet" href="css/style.css?v=4" />
+</head>
+<body>
+<header class="navbar">
+  <a class="brand" href="index.html">⌨️ Typing Practice</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html" class="active" aria-current="page">Home</a>
+    <a href="test.html">Typing Test</a>
+    <a href="history.html">History</a>
+  </nav>
+  <div class="nav-actions">
+    <button type="button" data-theme-toggle aria-pressed="false">🌙 Dark Mode</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="page-section">
+    <h1>Practice for DSSSB / Delhi Police Typing Tests</h1>
+    <p class="hint-text">Personal practice tool. All data is stored only in this browser (localStorage) - nothing is uploaded anywhere.</p>
+
+    <div class="setup-bar" id="launcher-bar">
+      <label for="launcher-language">Language
+        <select id="launcher-language">
+          <option value="english">English</option>
+          <option value="hindi">Hindi</option>
+        </select>
+      </label>
+      <label for="launcher-duration">Duration
+        <select id="launcher-duration">
+          <option value="60">1 Minute</option>
+          <option value="120">2 Minutes</option>
+          <option value="180">3 Minutes</option>
+          <option value="300" selected>5 Minutes</option>
+          <option value="600">10 Minutes</option>
+          <option value="900">15 Minutes</option>
+        </select>
+      </label>
+      <label for="launcher-passage">Passage
+        <select id="launcher-passage"></select>
+      </label>
+      <button type="button" id="launcher-start-btn" class="primary">Start Test →</button>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <h2>Personal Best</h2>
+    <div id="personal-best-grid" class="grid"></div>
+  </section>
+
+  <section class="page-section">
+    <h2>Dashboard</h2>
+    <div id="dashboard-grid" class="grid"></div>
+  </section>
+</main>
+
+<footer class="site-footer">Typing Practice &mdash; for personal exam preparation only.</footer>
+
+<script type="module" src="js/home.js?v=3"></script>
+</body>
+</html>

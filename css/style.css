@@ -1,0 +1,425 @@
+/* style.css - shared styles for all pages. CSS variables drive theming so
+   theme.js only needs to flip a single data-theme attribute. */
+
+:root[data-theme="light"] {
+  --bg: #f4f6fb;
+  --bg-elevated: #ffffff;
+  --text: #1c2230;
+  --text-muted: #5b6577;
+  --border: #d9dee7;
+  --accent: #2f6fed;
+  --accent-contrast: #ffffff;
+  --success: #1a8f4c;
+  --success-bg: #e3f6ea;
+  --danger: #d0362f;
+  --danger-bg: #fbe6e5;
+  --warning: #b8720a;
+  --warning-bg: #fdefdb;
+  --info: #2255c8;
+  --info-bg: #e4ecfd;
+  --shadow: 0 1px 2px rgba(20, 30, 60, 0.06), 0 4px 16px rgba(20, 30, 60, 0.06);
+  --focus-ring: #2f6fed;
+}
+
+:root[data-theme="dark"] {
+  --bg: #10131a;
+  --bg-elevated: #1a1f2b;
+  --text: #eef1f7;
+  --text-muted: #9aa4b8;
+  --border: #2b3242;
+  --accent: #5f93ff;
+  --accent-contrast: #0a0e16;
+  --success: #47d187;
+  --success-bg: #123425;
+  --danger: #ff6b62;
+  --danger-bg: #3a1817;
+  --warning: #ffb648;
+  --warning-bg: #3a2a0d;
+  --info: #7aa6ff;
+  --info-bg: #16223f;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 20px rgba(0, 0, 0, 0.35);
+  --focus-ring: #7aa6ff;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", "Noto Sans Devanagari", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+a { color: var(--accent); }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 1.25rem;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.navbar .brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  background: var(--info-bg);
+  color: var(--accent);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Buttons */
+button, .btn {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  padding: 0.55rem 1rem;
+}
+
+button:hover, .btn:hover { border-color: var(--accent); }
+
+button.primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+button.danger {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Cards / grid */
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.stat-card {
+  text-align: left;
+}
+
+.stat-card .stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.stat-card .stat-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+section.page-section {
+  margin-top: 1.75rem;
+}
+
+h1, h2, h3 { line-height: 1.25; }
+
+/* Test page */
+.setup-bar {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.setup-bar label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  gap: 0.25rem;
+}
+
+select {
+  font: inherit;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+}
+
+.paragraph-display {
+  font-size: 1.15rem;
+  padding: 1rem 1.1rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  height: 9rem;
+  overflow-y: auto;
+  position: relative;
+  scroll-behavior: auto;
+}
+
+.para-word {
+  display: inline;
+}
+
+.para-word-pending { color: var(--text-muted); }
+.para-word-correct { color: var(--success); }
+.para-word-wrong { color: var(--danger); text-decoration: underline wavy; }
+.para-word-current {
+  color: var(--text);
+  background: var(--info-bg);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.typing-area {
+  width: 100%;
+  min-height: 10rem;
+  font-size: 1.15rem;
+  font-family: inherit;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  resize: vertical;
+}
+
+.timer-display {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.live-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.action-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.hint-text { color: var(--text-muted); font-size: 0.85rem; }
+
+.mode-readout {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* While a test is running, the page must not scroll (Monkeytype-style):
+   only the paragraph box scrolls internally. The setup controls collapse
+   to a compact readout so the whole test view fits the viewport. */
+body.test-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+body.test-locked #setup-bar label,
+body.test-locked #start-btn,
+body.test-locked #shortcut-hint {
+  display: none;
+}
+
+body.test-locked .container {
+  padding-bottom: 0.5rem;
+}
+
+body.test-locked .page-section {
+  margin-top: 1rem;
+}
+
+body.test-locked .live-stats-bar {
+  margin: 0.75rem 0;
+}
+
+body.test-locked .typing-area {
+  min-height: 7rem;
+}
+
+/* On narrow screens the navbar alone wraps to several lines, so locking
+   the whole page to 100vh would push the Submit/Cancel buttons off-screen
+   with no way to reach them. Keep the internal paragraph-box auto-scroll
+   (still useful at any size) but let the page itself scroll normally. */
+@media (max-width: 700px) {
+  body.test-locked {
+    overflow: visible;
+    height: auto;
+  }
+}
+
+/* Error review */
+.error-review-block { margin-bottom: 1rem; }
+.original-text { color: var(--text-muted); }
+
+.word-diff { display: flex; flex-wrap: wrap; gap: 0.35rem 0.4rem; }
+
+.word-chip {
+  padding: 0.05rem 0.35rem;
+  border-radius: 5px;
+}
+
+.word-correct { background: var(--success-bg); color: var(--success); }
+.word-wrong { background: var(--danger-bg); color: var(--danger); cursor: help; text-decoration: underline dotted; }
+.word-missing { background: var(--warning-bg); color: var(--warning); }
+.word-extra { background: var(--info-bg); color: var(--info); }
+
+.word-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-muted); }
+.legend-item { display: flex; align-items: center; gap: 0.35rem; }
+.swatch { width: 0.9rem; height: 0.9rem; border-radius: 3px; display: inline-block; }
+
+/* History page */
+.toolbar {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.toolbar input[type="search"], .toolbar select {
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 900px;
+  background: var(--bg-elevated);
+}
+
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+th { color: var(--text-muted); font-weight: 600; position: sticky; top: 0; background: var(--bg-elevated); }
+
+tr:hover td { background: var(--info-bg); }
+
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: var(--info-bg);
+  color: var(--info);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+}
+
+footer.site-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 2rem 1rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .navbar { padding: 0.75rem 1rem; }
+  .timer-display { font-size: 1.4rem; }
+  .paragraph-display, .typing-area { font-size: 1rem; }
+  .paragraph-display { height: 7rem; }
+  table { min-width: 700px; }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
